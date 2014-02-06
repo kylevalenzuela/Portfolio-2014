@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*********** ********** **********   
 Theme Name: POP (Pop Out Portfolio) 
 Theme URI: https://github.com/kylevalenzuela/Portfolio-2014
@@ -9,6 +10,20 @@ License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: responsive, portfolio, cool, blue, 
 *********** ********** ********** **********/
+=======
+/*   
+
+Theme Name: Portfolio Wordpress Theme   
+Theme URI: http://kylevalenzuela.com
+Description: A simple responsive portfolio theme 
+
+Version: 0.1
+Author: Kyle Valenzuela
+Author URI: http://kylevalenzuela.com
+Tags: responsive, portfolio, blue
+
+*/
+>>>>>>> 98422308b4afb00ff74c9b6bad9dbc27456e510b
 
 /***************   
 VARIABLES     
@@ -20,9 +35,12 @@ $page-wrap: #5798ab;
 $sat-blue: #2099ff;
 $light-blue: #88ddff;
 $nav-highlight: rgba(30, 30, 30, 0.3); 
+<<<<<<< HEAD
 $nav-darken: rgba(30, 30, 30, 0.5);
 $offwhite: white/ 1.04;
 $gray: #3e433e;
+=======
+>>>>>>> 98422308b4afb00ff74c9b6bad9dbc27456e510b
 
 /*************************
 FONTS 
@@ -40,6 +58,10 @@ FONTS
 }
 
 @import url(http://fonts.googleapis.com/css?family=Amaranth); /*Amaranth Font*/
+<<<<<<< HEAD
+=======
+  
+>>>>>>> 98422308b4afb00ff74c9b6bad9dbc27456e510b
 
 
 /******************   
@@ -59,11 +81,28 @@ MIXINS
   #{$name}: #{$argument};
 }
 
+<<<<<<< HEAD
+=======
+/*
+Flexbox prefix mixin
+ Use: 
+ @include flexbox()
+*/
+
+@mixin flexbox() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+>>>>>>> 98422308b4afb00ff74c9b6bad9dbc27456e510b
 
 /**************
 GLOBAL STYLINGS 
 ****************/
 
+<<<<<<< HEAD
 ::selection {
   background: $light-blue; 
 }
@@ -73,12 +112,20 @@ GLOBAL STYLINGS
 
 body {
   background: $offwhite;  
+=======
+
+* { margin: 0; padding: 0; }
+
+body {
+  background: $page-wrap;  
+>>>>>>> 98422308b4afb00ff74c9b6bad9dbc27456e510b
   width: 100%;
   overflow: hidden; 
   font: 14px/1.4 'Amaranth', sans-serif;
   -webkit-font-smoothing:antialiased;
 }
 
+<<<<<<< HEAD
 div {
   display: block;
 }
@@ -99,11 +146,14 @@ video {
   height: auto;
 }
 
+=======
+>>>>>>> 98422308b4afb00ff74c9b6bad9dbc27456e510b
 .screen-reader-text { position: absolute; left: -9999px; top: -9999px; }
 .clear { clear: both; }
 .group:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
 * html .group, *:first-child+html .group { zoom: 1; box-sizing: border-box; } /* First selector = IE6, Second Selector = IE 7 */
 
+<<<<<<< HEAD
 /* Typography  */
 
 h1, h2, h3, h4, h5, h6, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
@@ -135,6 +185,8 @@ h5 {
 h6 {
   font-size: 1.000rem; /* = 16px */
 }
+=======
+>>>>>>> 98422308b4afb00ff74c9b6bad9dbc27456e510b
 
 /******************************************************************
 *****************************************************************
@@ -150,7 +202,11 @@ and (min-width: 1160px) {
     position: fixed;
     left: 0;
     top: 0;
+<<<<<<< HEAD
     width: 3.125rem;
+=======
+    width: 50px;
+>>>>>>> 98422308b4afb00ff74c9b6bad9dbc27456e510b
     height: 100%;
     overflow: hidden;
     cursor: default;
@@ -160,6 +216,7 @@ and (min-width: 1160px) {
     @include vendor-prefix(transition, all cubic-bezier(.53,.31,.46,.91) .5s);
     font-family: 'Amaranth', sans-serif;
     cursor: auto;
+<<<<<<< HEAD
     clear:both;
     z-index: 5000;
     display: block;
@@ -168,6 +225,16 @@ and (min-width: 1160px) {
     &:hover {
       width: 12.5rem;
       overflow-y: auto;
+=======
+    z-index: 99;
+    -webkit-touch-callout: none;
+
+
+    
+    &:hover {
+     width: 200px;
+     overflow: hidden;
+>>>>>>> 98422308b4afb00ff74c9b6bad9dbc27456e510b
     }
 
     &:after {
@@ -198,7 +265,11 @@ and (min-width: 1160px) {
   position: relative;
   height: 40px;
   width: 40px;
+<<<<<<< HEAD
   background:url(http://kylevalenzuela.com/wp-content/uploads/2013/12/me1.png);
+=======
+  background:url(http://localhost:8888/wp-content/uploads/2013/12/me1.png);
+>>>>>>> 98422308b4afb00ff74c9b6bad9dbc27456e510b
   background-size:100% 100%;
   background-repeat:no-repeat;
   margin: 20px auto 0 auto; 
@@ -229,12 +300,17 @@ and (min-width: 1160px) {
     } 
   }
 
+<<<<<<< HEAD
   .back-mobile {
     display: none;
   }
 
   .main-nav {
     position: relative;
+=======
+  .main-nav {
+    position: fixed;
+>>>>>>> 98422308b4afb00ff74c9b6bad9dbc27456e510b
     text-decoration: none;
     list-style-type: none;
     margin: 100px 0 0 0px;  
@@ -248,6 +324,7 @@ and (min-width: 1160px) {
     li {
 
       position: relative;
+<<<<<<< HEAD
       @include vendor-prefix(transition, ease-in-out .4s);
 
       &.current_page_item a{
@@ -259,14 +336,28 @@ and (min-width: 1160px) {
         background: $nav-highlight;
       }
       
+=======
+      width: 200px;
+     
+      &:nth-child(1) a:hover, &:nth-child(2) a:hover, &:nth-child(3) a:hover   {
+        color: $links;
+        height: 100%;
+        background: $nav-highlight;
+      }
+>>>>>>> 98422308b4afb00ff74c9b6bad9dbc27456e510b
       &:active a {
         background: $nav-highlight;
       }
 
+<<<<<<< HEAD
       &:last-child a {
         position: relative;
         border-bottom: 1px solid $light-blue/1.8;  
         overflow: hidden;
+=======
+      &:nth-child(3) a {
+        border-bottom: 1px solid $light-blue/1.8;  
+>>>>>>> 98422308b4afb00ff74c9b6bad9dbc27456e510b
       }
     } 
 
@@ -295,9 +386,71 @@ and (min-width: 1160px) {
       margin-left: 0;
       opacity: 1.0;
     }
+<<<<<<< HEAD
   }
 
   
+=======
+
+
+  }
+
+  .social-nav {
+    position: fixed;
+    text-decoration: none;
+    list-style-type: none;
+    margin: 0 auto 20px 0;
+    bottom: 0;
+    
+
+    ul {
+      position: relative;
+      font-size: 1.8em;
+      text-decoration: none;
+      z-index: 50;  
+    }  
+
+    li {
+      position: relative;
+      
+      &:nth-child(1) a:hover, &:nth-child(2) a:hover, &:nth-child(3) a:hover   {
+        color: $links;
+        height: 100%;
+        background: $nav-highlight;
+      }
+
+
+      &:nth-child(3) a {
+        border-bottom: 1px solid $light-blue/1.8;  
+      }
+    }  
+
+    a {
+      color:$light-blue;
+      float: left;
+      border-top: 1px solid $light-blue/1.8;
+      width: 200px;
+      @include vendor-prefix(transition, ease-in-out .4s);
+      
+    }
+    a:focus{
+       background: $nav-highlight;
+    }
+
+    span {
+      position: relative;
+      margin-left: 30px;
+      opacity: 0.0;
+      @include vendor-prefix(transition, .5s cubic-bezier(.53,.31,.46,.91)); 
+    }
+   
+    span.ease {
+      margin-left: 0;
+      opacity: 1.0;
+    }
+  }
+
+>>>>>>> 98422308b4afb00ff74c9b6bad9dbc27456e510b
   .icon-font{
     position: relative;
     font-family: 'icomoonregular';
@@ -306,15 +459,19 @@ and (min-width: 1160px) {
     float: left;
   }
 
+<<<<<<< HEAD
   .mobile-nav {
     display: none;
   }
 
+=======
+>>>>>>> 98422308b4afb00ff74c9b6bad9dbc27456e510b
 
   /* Content wrapper (besides .nav)  */
 
   .page-wrap {
     position: fixed;
+<<<<<<< HEAD
     background: $offwhite;
     height: 100%;
     width: 100%;
@@ -330,6 +487,23 @@ and (min-width: 1160px) {
 
   .page-wrap-expand {
     margin-left: 200px;
+=======
+    background: $page-wrap;
+    left: 50px;
+    height: 100%;
+    max-width: 100%;
+    margin: 0;
+    @include vendor-prefix(transition, all cubic-bezier(.53,.31,.46,.91) .5s);
+    overflow-y: auto;
+    overflow-x: hidden;
+    z-index: 1000;
+    top: 0;
+    left: 50px;
+  }
+
+  .page-wrap-expand {
+    left: 200px;
+>>>>>>> 98422308b4afb00ff74c9b6bad9dbc27456e510b
   }
 
   /* *************
@@ -338,16 +512,25 @@ and (min-width: 1160px) {
   
   .cat-container {
     margin: 3em 0 1.6em 0;
+<<<<<<< HEAD
     width: 75%;
     padding: 0 7.1% 0 7.9%;
   }
   
   .portfolio-cat {
   
+=======
+    width: auto;
+  }
+  
+  .portfolio-cat {
+
+>>>>>>> 98422308b4afb00ff74c9b6bad9dbc27456e510b
     position: relative;
     max-width: 100%;
     display: inline-block;
 
+<<<<<<< HEAD
     h4 {
       background: $nav; 
       margin-left: 1em;
@@ -363,30 +546,59 @@ and (min-width: 1160px) {
       &:hover, &:focus, &:active {
         color: $links;
       }
+=======
+    a {
+      text-decoration: none; 
+      margin-left: 1em;
+>>>>>>> 98422308b4afb00ff74c9b6bad9dbc27456e510b
     }
   }
 
   .porfolio-cat-flex {
     position: relative;
+<<<<<<< HEAD
     width: auto;
     float: left;
     padding: 0 7.1% 3% 7.9%;
+=======
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    margin: auto;  
+>>>>>>> 98422308b4afb00ff74c9b6bad9dbc27456e510b
   }
 
   .portfolio-item {
     position: relative;
+<<<<<<< HEAD
     width: 30%;
     height: 30%;
     float: left;
     margin-right: 2.5%;
     margin-bottom: 2.5%;
     
+=======
+    display: inline-block;
+    width: 30%;
+    height: 30%;
+    float: left;
+    margin: 1%;
+>>>>>>> 98422308b4afb00ff74c9b6bad9dbc27456e510b
 
     img {
       max-width: 100%;
       max-height: 100%;
+<<<<<<< HEAD
       width: 100%;
      @include vendor-prefix(border-radius, 25px);
+=======
+      @include vendor-prefix(border-radius, 25px);
+    }
+    
+    &:hover h4, &:focus h4{
+      opacity: 1.0;
+      bottom:2%;
+>>>>>>> 98422308b4afb00ff74c9b6bad9dbc27456e510b
     }
 
 
@@ -401,6 +613,7 @@ and (min-width: 1160px) {
       top: 0;
       left: 0;
       width: 100%;
+<<<<<<< HEAD
       height: 100%;
       background: rgb(0, 0, 0); /* fallback color */
       background: rgba(0, 0, 0, 0.0);
@@ -455,6 +668,25 @@ and (min-width: 1160px) {
       &:hover h5, &:focus h5 {
         opacity: 1.0;
         margin-top:50%;
+=======
+      height: 99%;
+      background: rgb(0, 0, 0); /* fallback color */
+      background: rgba(0, 0, 0, 0.0);
+      @include vendor-prefix(transition, ease-in-out .3s);
+      @include vendor-prefix(border-radius, 25px);
+
+      h4 {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        bottom: -40%;
+        font-size: 200%;
+        margin: auto; 
+        opacity: 0.0;
+        color: $links;
+        @include vendor-prefix(transition, ease-in-out .3s);
+>>>>>>> 98422308b4afb00ff74c9b6bad9dbc27456e510b
       }
     }
     
@@ -468,6 +700,7 @@ and (min-width: 1160px) {
   /* *************
   Single Blog Post  
   ******************/
+<<<<<<< HEAD
   
   .post-pic {
     /* background-image in HTML for PHP */
@@ -479,6 +712,21 @@ and (min-width: 1160px) {
     background-repeat: no-repeat;
     background-attachment: fixed;
     @include vendor-prefix(transition, background linear 1s );
+=======
+
+  
+  .post-pic {
+    /* background-image in HTML for PHP */
+    height: 50%;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-color: rgba(0,0,0,0);
+    background-attachment: relative;
+    max-width: 100%;
+    left: 50px;
+    margin: 0 auto;
+    @include vendor-prefix(transition, background-color linear 1s );
+>>>>>>> 98422308b4afb00ff74c9b6bad9dbc27456e510b
 
     &:after {
       position: absolute;
@@ -488,6 +736,7 @@ and (min-width: 1160px) {
     }
   }
 
+<<<<<<< HEAD
   .header-content {
     position: absolute;
     top: 80%; right: 0; bottom: 0; left: 0;
@@ -506,11 +755,16 @@ and (min-width: 1160px) {
 
   .post-pic.fade-pic {
     background-color: rgba(0,0,0,.87);
+=======
+  .post-pic.fade-pic {
+    background-color: rgba(0,0,0,.7);
+>>>>>>> 98422308b4afb00ff74c9b6bad9dbc27456e510b
     background-image: none;
   }
 
   .post {
     position: relative; 
+<<<<<<< HEAD
     background: $offwhite;
     color: $gray;
     max-width: 100%;
@@ -2942,11 +3196,300 @@ Main Nav
   
 
 
+=======
+    background: $page-wrap;
+    max-width: 100%;
+  }
+  
+  .entry {
+    max-width: 100%;
+    margin: 0 3%;
+  }
 
   /* *************
   Footer 
   ******************/
 
+  footer {
+    position: fixed;
+    width: 100%;
+    left:50px;
+    bottom:0;
+    text-align: center;
+    background: $page-wrap;
+   @include vendor-prefix(transition, left cubic-bezier(.53,.31,.46,.91) .5s);
+  }
+  
+}
+
+
+
+/******************************************************************
+*****************************************************************
+MEDIA QUERY: TABLET SIZE (768px-1159px)
+***********************************************************************************
+*****************************************************************/
+
+@media only screen 
+and (min-width : 768px) 
+and (max-width : 1159px) {
+
+  nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 200px;
+    height: 100%;
+    overflow: hidden;
+    cursor: default;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: $nav;
+    @include vendor-prefix(transition, width cubic-bezier(.53,.31,.46,.91) .5s);
+    font-family: 'Amaranth', sans-serif;
+    display: block;
+  }
+
+  nav ul {
+    list-style: none;
+  }
+
+  nav ul li a {
+    display: block;
+    padding: 2px;
+    color: $light-blue;
+    font-size: 1.8em;
+    font-weight: normal;
+    text-decoration: none;
+  }
+  
+ .header-logo {
+    position: relative;
+    height: 80px;
+    width: 80px;
+    background:url(http://localhost:8888/wp-content/uploads/2013/12/me1.png);
+    background-size:100% 100%;
+    background-repeat:no-repeat;
+    margin: 20px auto -40px auto; 
+    @include vendor-prefix(transition, all cubic-bezier(.53,.31,.46,.91) .5s ); 
+  }
+
+  .name {
+    a {
+      position: fixed;
+      display: block;
+      text-decoration: none;
+      margin: 50px 0 0 12px;
+      font-size: 1.8em;
+      color: $links; 
+      @include vendor-prefix(transition, .5s cubic-bezier(.53,.31,.46,.91));
+    }
+  }
+
+  .main-nav {
+    position: fixed;
+    text-decoration: none;
+    list-style-type: none;
+    margin: 100px 0 0 0px;  
+    
+    ul {
+      position: relative;
+      font-size: 1.8em;
+      text-decoration: none;
+    }  
+
+    li {
+
+      position: relative;
+      width: 200px;
+     
+      &:nth-child(1) a:hover, &:nth-child(2) a:hover, &:nth-child(3) a:hover   {
+        color: $links;
+        height: 100%;
+        background: $nav-highlight;
+      }
+
+      &:nth-child(3) a {
+        border-bottom: 1px solid $light-blue/1.8;  
+      }
+    } 
+
+    li a.selected {
+      background: $nav-highlight;
+    }
+    
+    a {
+      color:$light-blue;
+      float: left;
+      border-top: 1px solid $light-blue/1.8;
+      width: 200px;
+       @include vendor-prefix(transition, ease-in-out .4s);
+    }
+    
+
+    a:focus{
+      background: $nav-highlight;
+    }
+
+    span {
+      position: relative;
+      float: left;
+      margin-left: 0;
+      @include vendor-prefix(transition, .5s cubic-bezier(.53,.31,.46,.91)); 
+    }
+  }
+
+  .social-nav {
+    position: fixed;
+    text-decoration: none;
+    list-style-type: none;
+    margin: 0 auto 20px 0;
+    bottom: 0;
+    
+
+    ul {
+      position: relative;
+      font-size: 1.8em;
+      text-decoration: none;
+    }  
+
+    li {
+      position: relative;
+
+      
+
+      &:nth-child(1) a:hover, &:nth-child(2) a:hover, &:nth-child(3) a:hover {
+        color: $links;
+        height: 100%;
+        background: $nav-highlight;
+      }
+
+
+      &:nth-child(3) a {
+        border-bottom: 1px solid $light-blue/1.8;  
+      }
+    }  
+
+    a {
+      color:$light-blue;
+      float: left;
+      border-top: 1px solid $light-blue/1.8;
+      width: 200px;
+      @include vendor-prefix(transition, ease-in-out .4s);
+    }
+    a:focus{
+       background: $nav-highlight;
+    }
+
+    span {
+      position: relative;
+      float: left;
+      margin-left: 0;
+      @include vendor-prefix(transition, .5s cubic-bezier(.53,.31,.46,.91)); 
+    }
+  }
+
+  .icon-font{
+    position: relative;
+    font-family: 'icomoonregular';
+    font-weight: normal;
+    margin: 0 20px 0 11px;
+    float: left;
+  }
+
+
+  /* Content wrapper (besides .nav)  */
+
+  .page-wrap {
+    position: fixed;
+    background: $page-wrap;
+    left: 200px;
+    height: 100%;
+    max-width: 100%;
+    overflow-y: auto;
+    @include vendor-prefix(transition, left cubic-bezier(.53,.31,.46,.91) .5s);
+  }
+
+  .porfolio-cat-flex {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    width: auto;
+    margin: auto;
+    text-align: justify;
+  }
+
+  .portfolio-item {
+    position: relative;
+    display: inline-block;
+    width: 30%;
+    height: 30%;
+    float: left;
+    margin: 1%;
+    
+    
+    img {
+      max-width: 100%;
+      max-height: 100%;
+      @include vendor-prefix(border-radius, 25px);
+    }
+    
+    &:hover h4, &:focus h4{
+      opacity: 1.0;
+    }
+
+
+    &:hover img, &:focus img {
+      @include vendor-prefix(filter, blur(2px));
+      filter: url(blur.svg#blur);
+      filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='2');
+    }
+
+    span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgb(0, 0, 0); /* fallback color */
+      background: rgba(0, 0, 0, 0.0);
+      @include vendor-prefix(transition, ease-in-out .3s);
+
+      h4 {
+         text-align: center;
+         margin: auto; 
+         opacity: 0.0;
+         color: $links;
+        @include vendor-prefix(transition, ease-in-out .3s);
+      }
+    }
+    
+
+    &:hover span, &:focus span {
+
+      background: rgb(0, 0, 0); /* fallback color */
+      background: rgba(0, 0, 0, 0.4);
+    }
+  }
+  
+  /* *************
+  Single Blog Post  
+  ******************/
+
+  .post-pic {
+    position: fixed;
+    width: 100%;
+    height: 50%; 
+    
+  
+  }
+>>>>>>> 98422308b4afb00ff74c9b6bad9dbc27456e510b
+
+  /* *************
+  Footer 
+  ******************/
+
+<<<<<<< HEAD
   footer {
     position: fixed;
     width: 100%;
@@ -3003,3 +3546,98 @@ Main Nav
 
 
 
+=======
+  .footer {
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+      margin: auto;
+      text-align: center;
+    }
+}
+
+/******************************************************************
+*****************************************************************
+MEDIA QUERY: PHONE SIZE (767px -)
+***********************************************************************************
+*****************************************************************/
+
+@media only screen 
+and (max-width : 767px)  {
+
+  .porfolio-cat-flex {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    width: auto;
+    margin: auto;
+    text-align: justify;
+  }
+
+  .portfolio-item {
+    position: relative;
+    display: inline-block;
+    width: 30%;
+    height: 30%;
+    float: left;
+    margin: 1%;
+    
+    
+    img {
+      max-width: 100%;
+      max-height: 100%;
+      @include vendor-prefix(border-radius, 25px);
+    }
+    
+    &:hover h4, &:focus h4{
+      opacity: 1.0;
+    }
+
+
+    &:hover img, &:focus img {
+      @include vendor-prefix(filter, blur(2px));
+      filter: url(blur.svg#blur);
+      filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='2');
+    }
+
+    span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgb(0, 0, 0); /* fallback color */
+      background: rgba(0, 0, 0, 0.0);
+      @include vendor-prefix(transition, ease-in-out .3s);
+
+      h4 {
+         text-align: center;
+         margin: auto; 
+         opacity: 0.0;
+         color: $links;
+        @include vendor-prefix(transition, ease-in-out .3s);
+      }
+    }
+    
+
+    &:hover span, &:focus span {
+
+      background: rgb(0, 0, 0); /* fallback color */
+      background: rgba(0, 0, 0, 0.4);
+    }
+  }
+
+/* *************
+  Single Blog Post  
+  ******************/
+
+  .post-pic {
+    width: 100%;
+
+    img {
+      max-width: 100%;
+    }
+  }
+
+}
+>>>>>>> 98422308b4afb00ff74c9b6bad9dbc27456e510b

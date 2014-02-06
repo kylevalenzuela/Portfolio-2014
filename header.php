@@ -6,13 +6,19 @@
 <head profile="http://gmpg.org/xfn/11">
 	
 	<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
+<<<<<<< HEAD
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+=======
+>>>>>>> 98422308b4afb00ff74c9b6bad9dbc27456e510b
 	
 	<?php if (is_search()) { ?>
 	   <meta name="robots" content="noindex, nofollow" /> 
 	<?php } ?>
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 98422308b4afb00ff74c9b6bad9dbc27456e510b
 	<title>
 		   <?php
 		      if (function_exists('is_tag') && is_tag()) {
@@ -39,6 +45,7 @@
 	<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" />
 	
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
+<<<<<<< HEAD
 
 	
 	
@@ -49,6 +56,14 @@
 	<script>
 		var nlform = new NLForm( document.getElementById( 'nl-form' ) );
 	</script>
+=======
+	
+
+
+	<?php if ( is_singular() ) wp_enqueue_script( 'comment-reply' ); ?>
+
+	<?php wp_head(); ?>
+>>>>>>> 98422308b4afb00ff74c9b6bad9dbc27456e510b
 
 	
 	
@@ -69,6 +84,7 @@
 			<a href="<?php echo get_option('home'); ?>/"><div class="header-logo"></div></a>
 			
 			<div class="name"><a href="<?php echo get_option('home'); ?>/"><?php bloginfo('name'); ?></a></div>
+<<<<<<< HEAD
 
 				
 			<?php 
@@ -117,6 +133,38 @@
 	<?php } else {
 		echo "<ul class='mobile-nav' style='display:none'></ul>";
 	}?>
+=======
+			
+
+			
+				<ul class="main-nav">
+					<li><a href="http://localhost:8888/portfolio"><div class="icon-font">h</div><span>Portfolio</span></a></li>
+					<li><a href="#"><div class="icon-font">t</div><span>About</span></a></li>
+					<li><a href="#"><div class="icon-font">d</div><span>Blog</span></a></li>
+				</ul>
+			
+			
+					<!-- <?php wp_nav_menu(array('menu'=>'Main Nav Menu')); ?>-->
+
+
+		
+
+			
+				<ul class="social-nav">
+					<li><a href="https://github.com/kylevalenzuela" target="blank"><div class="icon-font">h</div><span>Github</span></a></li>
+					<li><a href="https://twitter.com/kylevalenzuela" target="blank"><div class="icon-font">t</div><span>Twitter</span></a></li>
+					<li><a href="http://dribbble.com/kvalenzuela" target="blank"><div class="icon-font">d</div><span>Dribbble</span></a></li>
+				</ul>
+			
+				
+		
+
+		</nav>
+
+	<div class="page-wrap">	
+
+		
+>>>>>>> 98422308b4afb00ff74c9b6bad9dbc27456e510b
 
 		
 

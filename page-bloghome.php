@@ -7,12 +7,16 @@
 
 <?php get_header(); ?>
 
+<<<<<<< HEAD
 <div class="blogroll">
 
+=======
+>>>>>>> 98422308b4afb00ff74c9b6bad9dbc27456e510b
 	<?php query_posts("posts_per_page=5"); ?>
 
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
+<<<<<<< HEAD
 		<div class="post-roll">
 
 			<a href="<?php the_permalink(); ?>">
@@ -39,6 +43,27 @@
 		</div>
 
 	<?php endwhile; wp_reset_query();?>
+=======
+		<div <?php post_class() ?> id="post-<?php the_ID(); ?>">
+
+			<h2><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
+
+			<?php include (TEMPLATEPATH . '/inc/meta.php' ); ?>
+
+			<div class="entry">
+				<?php the_content(); ?>
+			</div>
+
+			<div class="postmetadata">
+				<?php the_tags('Tags: ', ', ', '<br />'); ?>
+				Posted in <?php the_category(', ') ?> | 
+				
+			</div>
+
+		</div>
+
+	<?php endwhile; ?>
+>>>>>>> 98422308b4afb00ff74c9b6bad9dbc27456e510b
 
 	<?php include (TEMPLATEPATH . '/inc/nav.php' ); ?>
 
@@ -48,6 +73,10 @@
 
 	<?php endif; ?>
 
+<<<<<<< HEAD
 </div>
+=======
+
+>>>>>>> 98422308b4afb00ff74c9b6bad9dbc27456e510b
 
 <?php get_footer(); ?>

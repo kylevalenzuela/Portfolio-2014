@@ -9,11 +9,16 @@
 	   wp_register_script('jquery', ("http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"), false);
 	   wp_enqueue_script('jquery');
      
+<<<<<<< HEAD
        wp_register_script('myjquery' , get_bloginfo('template_directory') . "/js/myjquery-ck.js");
        wp_enqueue_script('myjquery');
 
        wp_register_script('nlform' , get_bloginfo('template_directory') . "/js/nlform.js");
        wp_enqueue_script('nlform');
+=======
+       wp_register_script('myjquery' , get_bloginfo('template_directory') . "/js/myjquery.js");
+       wp_enqueue_script('myjquery');
+>>>>>>> 98422308b4afb00ff74c9b6bad9dbc27456e510b
 	}
 	
 	// Clean up the <head>
