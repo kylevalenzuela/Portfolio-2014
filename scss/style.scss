@@ -1,0 +1,3005 @@
+/*********** ********** **********   
+Theme Name: POP (Pop Out Portfolio) 
+Theme URI: https://github.com/kylevalenzuela/Portfolio-2014
+Author: Kyle Valenzuela
+Author URI: http://kylevalenzuela.com
+Description: A simple responsive portfolio theme with a pop out navigation. This flexible portfolio looks good on any device. Cool temperature color palette.
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: responsive, portfolio, cool, blue, 
+*********** ********** ********** **********/
+
+/***************   
+VARIABLES     
+*****************/
+
+$nav: #224466; 
+$links: #cdddbb;
+$page-wrap: #5798ab;
+$sat-blue: #2099ff;
+$light-blue: #88ddff;
+$nav-highlight: rgba(30, 30, 30, 0.3); 
+$nav-darken: rgba(30, 30, 30, 0.5);
+$offwhite: white/ 1.04;
+$gray: #3e433e;
+
+/*************************
+FONTS 
+**************************/
+
+@font-face {
+    font-family: 'icomoonregular';  /*Icon Font*/
+    src: url('icomoon-webfont.eot');
+    src: url('icomoon-webfont.eot?#iefix') format('embedded-opentype'),
+         url('icomoon-webfont.woff') format('woff'),
+         url('icomoon-webfont.ttf') format('truetype'),
+         url('icomoon-webfont.svg#icomoonregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@import url(http://fonts.googleapis.com/css?family=Amaranth); /*Amaranth Font*/
+
+
+/******************   
+MIXINS     
+*******************/
+
+/*Vendor prefix mixin
+ Use: 
+ @include vendor-prefix(name, value)
+*/
+
+@mixin vendor-prefix($name, $argument) {
+  -webkit-#{$name}: #{$argument};
+  -ms-#{$name}: #{$argument};
+  -moz-#{$name}: #{$argument};
+  -o-#{$name}: #{$argument};
+  #{$name}: #{$argument};
+}
+
+
+/**************
+GLOBAL STYLINGS 
+****************/
+
+::selection {
+  background: $light-blue; 
+}
+
+* { margin: 0; padding: 0; -webkit-overflow-scrolling: touch;} //resets margins and padding and add momentum scrolling for iOS
+
+
+body {
+  background: $offwhite;  
+  width: 100%;
+  overflow: hidden; 
+  font: 14px/1.4 'Amaranth', sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+
+div {
+  display: block;
+}
+
+/* Responsive Images, Video  */
+
+img {
+  -ms-interpolation-mode: bicubic;
+  border: 0;
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+video {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+.screen-reader-text { position: absolute; left: -9999px; top: -9999px; }
+.clear { clear: both; }
+.group:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
+* html .group, *:first-child+html .group { zoom: 1; box-sizing: border-box; } /* First selector = IE6, Second Selector = IE 7 */
+
+/* Typography  */
+
+h1, h2, h3, h4, h5, h6, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+  font-weight: 700;
+  line-height: 1.0rem;
+  word-wrap: break-word;
+}
+
+h1 {
+  font-size: 2.625rem; /* = 42px */
+}
+
+h2 {
+  font-size: 2.250rem; /* = 36px */ 
+}
+
+h3 {
+  font-size: 1.875rem; /* = 30px */
+}
+
+h4 {
+  font-size: 1.500rem; /* = 24px */
+}
+
+h5 {
+  font-size: 1.125rem; /* = 18px */
+}
+
+h6 {
+  font-size: 1.000rem; /* = 16px */
+}
+
+/******************************************************************
+*****************************************************************
+MEDIA QUERY: Desktops/ Laptops  (1160px +)
+***********************************************************************************
+*****************************************************************/
+
+@media only screen 
+and (min-width: 1160px) {
+  
+  /* Side Bar Navigation and pop out  */
+  nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 3.125rem;
+    height: 100%;
+    overflow: hidden;
+    cursor: default;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: $nav;
+    @include vendor-prefix(transition, all cubic-bezier(.53,.31,.46,.91) .5s);
+    font-family: 'Amaranth', sans-serif;
+    cursor: auto;
+    clear:both;
+    z-index: 5000;
+    display: block;
+    -webkit-touch-callout: none;
+
+    &:hover {
+      width: 12.5rem;
+      overflow-y: auto;
+    }
+
+    &:after {
+      width: 200px;
+      display: block;
+      cursor: auto;
+    }
+  }
+
+  nav ul {
+    list-style: none;
+  }
+
+  nav ul li a {
+    display: block;
+    padding: 2px;
+    color: $light-blue;
+    font-size: 1.8em;
+    font-weight: normal;
+    text-decoration: none;
+  }
+  
+  .nav-selected  {
+    background: $nav-highlight;
+  }
+  
+ .header-logo {
+  position: relative;
+  height: 40px;
+  width: 40px;
+  background:url(http://kylevalenzuela.com/wp-content/uploads/2013/12/me1.png);
+  background-size:100% 100%;
+  background-repeat:no-repeat;
+  margin: 20px auto 0 auto; 
+  @include vendor-prefix(transition, all cubic-bezier(.53,.31,.46,.91) .5s ); 
+  }
+
+  .header-logo.animated {
+    height: 80px;
+    width: 80px;
+    margin-bottom: -40px;
+  }
+
+  .name {
+    a {
+      position: fixed;
+      display: block;
+      text-decoration: none;
+      margin: 10px 0 0 12px;
+      font-size: 1.8em;
+      color: $links; 
+      opacity: 0;  
+      @include vendor-prefix(transition, .5s cubic-bezier(.53,.31,.46,.91));
+    }
+
+    &.fall a {
+      margin-top: 50px;
+      opacity: 1;
+    } 
+  }
+
+  .back-mobile {
+    display: none;
+  }
+
+  .main-nav {
+    position: relative;
+    text-decoration: none;
+    list-style-type: none;
+    margin: 100px 0 0 0px;  
+    
+    ul {
+      position: relative;
+      font-size: 1.8em;
+      text-decoration: none;
+    }  
+
+    li {
+
+      position: relative;
+      @include vendor-prefix(transition, ease-in-out .4s);
+
+      &.current_page_item a{
+        color: $links;
+      }
+     
+      a:hover   {
+        color: $links;
+        background: $nav-highlight;
+      }
+      
+      &:active a {
+        background: $nav-highlight;
+      }
+
+      &:last-child a {
+        position: relative;
+        border-bottom: 1px solid $light-blue/1.8;  
+        overflow: hidden;
+      }
+    } 
+
+    a {
+      color:$light-blue;
+      float: left;
+      border-top: 1px solid $light-blue/1.8;
+      width: 200px;
+      @include vendor-prefix(transition, ease-in-out .4s);
+      overflow: hidden;
+    }
+   
+    a:focus{
+       background: $nav-highlight;
+    }
+
+    span {
+      position: relative;
+      float: left;
+      margin-left: 30px;
+      opacity: 0.0;
+      @include vendor-prefix(transition, .5s cubic-bezier(.53,.31,.46,.91)); 
+    }
+   
+    span.ease {
+      margin-left: 0;
+      opacity: 1.0;
+    }
+  }
+
+  
+  .icon-font{
+    position: relative;
+    font-family: 'icomoonregular';
+    font-weight: normal;
+    margin: 0 20px 0 11px;
+    float: left;
+  }
+
+  .mobile-nav {
+    display: none;
+  }
+
+
+  /* Content wrapper (besides .nav)  */
+
+  .page-wrap {
+    position: fixed;
+    background: $offwhite;
+    height: 100%;
+    width: 100%;
+    @include vendor-prefix(transition, all cubic-bezier(.53,.31,.46,.91) .5s);
+    overflow-y: auto;
+    overflow-x: hidden;
+    z-index: 100;
+    top: 0;
+    margin-left: 50px;
+    max-width: 100%;
+    display: block;
+  }
+
+  .page-wrap-expand {
+    margin-left: 200px;
+  }
+
+  /* *************
+  Portfolio Categories 
+  ******************/
+  
+  .cat-container {
+    margin: 3em 0 1.6em 0;
+    width: 75%;
+    padding: 0 7.1% 0 7.9%;
+  }
+  
+  .portfolio-cat {
+  
+    position: relative;
+    max-width: 100%;
+    display: inline-block;
+
+    h4 {
+      background: $nav; 
+      margin-left: 1em;
+      padding: .6rem .6rem;
+      @include vendor-prefix(border-radius, 50px);
+    }
+
+    a {
+      text-decoration: none; 
+      color: $light-blue;
+      @include vendor-prefix(transition, color linear .3s );
+
+      &:hover, &:focus, &:active {
+        color: $links;
+      }
+    }
+  }
+
+  .porfolio-cat-flex {
+    position: relative;
+    width: auto;
+    float: left;
+    padding: 0 7.1% 3% 7.9%;
+  }
+
+  .portfolio-item {
+    position: relative;
+    width: 30%;
+    height: 30%;
+    float: left;
+    margin-right: 2.5%;
+    margin-bottom: 2.5%;
+    
+
+    img {
+      max-width: 100%;
+      max-height: 100%;
+      width: 100%;
+     @include vendor-prefix(border-radius, 25px);
+    }
+
+
+    &:hover img, &:focus img {
+      @include vendor-prefix(filter, blur(2px));
+      filter: url(blur.svg#blur);
+      filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='2');
+    }
+
+    span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgb(0, 0, 0); /* fallback color */
+      background: rgba(0, 0, 0, 0.0);
+      @include vendor-prefix(transition, ease-in-out .3s);
+      overflow: hidden;
+      @include vendor-prefix(border-radius, 25px);
+
+      h3 {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        text-decoration: underline;
+        margin-top: 0;
+        opacity: 0.0;
+        line-height: 2rem;
+        color: $links;
+        @include vendor-prefix(transition, ease-in-out .3s);
+      }
+     
+      &:hover h3, &:focus h3{
+        opacity: 1.0;
+        margin-top:20%;
+      }
+
+      h5 {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        margin-top: 100%;
+        opacity: 0.0;
+        color: $links;
+        display:inline-block;
+        @include vendor-prefix(transition, ease-in-out .3s);
+
+        .i {
+          position: relative;
+          font-family: 'icomoonregular';
+          font-weight: normal;
+          margin-right: .5rem;
+          display:inline-block;
+        }
+        p {
+          position: relative;
+          margin-right: .8rem;
+          display:inline-block;
+          margin-bottom: .5rem;
+        }
+      }
+
+      &:hover h5, &:focus h5 {
+        opacity: 1.0;
+        margin-top:50%;
+      }
+    }
+    
+    &:hover span, &:focus span {
+
+      background: rgb(0, 0, 0); /* fallback color */
+      background: rgba(0, 0, 0, 0.6);
+    }
+  }
+
+  /* *************
+  Single Blog Post  
+  ******************/
+  
+  .post-pic {
+    /* background-image in HTML for PHP */
+    height: 65%;
+    width: 100%;
+    position: relative;
+    background-size: 100%;
+    background-color: rgba(0,0,0, .1);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    @include vendor-prefix(transition, background linear 1s );
+
+    &:after {
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      background-color: inherit;
+      content: ' ';
+    }
+  }
+
+  .header-content {
+    position: absolute;
+    top: 80%; right: 0; bottom: 0; left: 0;
+    background-color: rgba(0,0,0, .6);
+    color: white;
+    padding: 1rem 0 1rem 66px;
+
+    h1 {
+      margin-bottom: .9rem;
+    }
+
+    p {
+      color: $light-blue;
+    }
+  }
+
+  .post-pic.fade-pic {
+    background-color: rgba(0,0,0,.87);
+    background-image: none;
+  }
+
+  .post {
+    position: relative; 
+    background: $offwhite;
+    color: $gray;
+    max-width: 100%;
+  }
+  
+  h3 {
+    margin-bottom: 2rem;
+    color: $nav;
+  }
+
+  .entry {
+    max-width: 100%;
+    padding: 1rem 17% 0 17%;
+    margin-right: 50px;
+    margin-top: 2rem;
+    font-size: 1.3rem;
+    margin-bottom: 4rem;
+    ::selection {
+      background: $light-blue; 
+    }
+    
+    p {
+      margin-bottom: 1rem;
+      margin-top: 1rem;
+    }
+
+    a {
+      color: $nav;
+      text-decoration: underline;
+      
+
+      &:hover, &:active, &:focus  {
+        background: $nav;
+        @include vendor-prefix(border-radius, 50px);
+        padding: .3rem;
+        margin: -.3rem;
+        color: $links;  
+        text-decoration: none;
+      }
+    }
+
+    blockquote {
+      padding: 1rem 5%;
+      background: $nav-highlight;
+      @include vendor-prefix(border-radius, 25px);
+      color: $nav;
+      font-size: 1.7rem;
+      margin-bottom: 1rem;
+    }
+
+    .tags {
+      margin: 3rem 0 2rem 0;
+      color: $light-blue;
+      
+      ul {
+        li {
+          display: inline-block;     
+          margin-right: 1rem; 
+          background: $nav;
+          @include vendor-prefix(border-radius, 50px);
+
+          a {
+            text-decoration: none;
+            color: $light-blue;
+            padding: .8rem;
+            margin: .3rem;
+
+            &:hover, &:active, &:focus  {
+              color: $links;
+              background: transparent;
+              padding: .8rem;
+            }
+          }
+        }
+      }
+    }
+    .follow-me {
+      
+      a {
+        text-decoration: underline;
+
+        &:hover, &:active, &:focus {
+          margin: -.3rem !important;
+          padding: .3rem !important;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+     /* *************
+  Portfolio Content 
+  ******************/
+  
+  .port-title {
+    margin-top: 2.5rem;
+    text-align: center;
+    color: $nav;
+  }
+    /* *************
+  Blog Homepage / Blogroll   
+  ******************/
+
+  .blogroll {
+    position: relative;
+    margin: 2rem 7% 5rem 7%;
+    padding-right: 50px;
+
+    .post-roll {
+    position: relative;
+    display:inline-block;  
+    width: 100%;
+    padding: 2rem 0;
+
+      &:nth-child(even) {
+          background: $nav-highlight;
+          @include vendor-prefix(border-radius, 25px);
+          
+      }
+      .featured-img {
+        width: 30%;
+        display: block;
+        float: left;
+        margin-right: 1rem;
+        margin-left: 2rem;
+
+        img {
+          max-width: 100%;
+          @include vendor-prefix(border-radius, 25px);
+        }
+      }
+
+      .entry-roll {
+        @extend  .entry;
+        margin: 0 -15% 2rem 0;
+        
+        .roll-date {
+          color: $light-blue;
+          padding-top: .5rem;
+        }
+
+        h2 {
+          margin-bottom: .6rem;
+        }
+
+        .tags-roll {
+          @extend .tags;
+          margin-bottom: 1rem;
+          display: block;
+        }
+      }
+    }
+  }
+
+  /* *************
+  Archive
+  ******************/
+
+  .arch-tags {
+    color: $light-blue;
+    padding-top: .9rem;
+  }
+
+   /* *************
+  About  
+  ******************/
+
+  .section-1 {
+    position: relative; 
+    width: 100%;
+    height: 670px;
+    max-width: 100%;
+    background: url('http://kylevalenzuela.com/wp-content/uploads/2014/01/kyle-me-e1389934587429.jpg') 3rem center no-repeat fixed;
+    display: block;
+
+  }
+  .section-1-overlay {
+      width: 100%;
+      height: 100%;
+      background: $nav-highlight; //rgba(255, 255, 255, 0.3);
+    }
+
+  .welcome-text {
+    position: absolute;
+    text-align: center;
+    padding: 9rem 0 0 16%;
+    z-index: 100;
+    overflow-y : auto;
+    @include vendor-prefix(transition, all linear .4s );
+
+    h1 {
+      font-size: 5rem;
+      margin-bottom: 3.7rem;
+      color: $offwhite;
+
+    }
+    h3 {
+      color: $offwhite;
+      margin-bottom: 6rem;
+      span {
+        font-family: 'icomoonregular';
+        font-size: 6.6rem;
+        font-weight: 100;
+        color: rgba(255, 255, 255, .6);
+      }
+    }
+  
+  }
+  .welcome-text.fade-it {
+    opacity: 0;
+  }
+
+  .section-2 {
+    width: 100%;
+    position: relative;
+    background: $light-blue fixed;
+    height: 550px;
+    z-index: 3050;
+
+    h1 {
+      font-size: 4rem;
+      text-align: center;
+      padding: 2rem 0 2rem 0; 
+      margin-right: 4rem;
+      margin-bottom: 3rem;
+      color: $nav;
+      border-bottom: $nav solid 2px;
+      @include vendor-prefix(animation, fadein 2s);
+
+    }
+  }
+  .about-blurb {
+    opacity: 0.0;
+    @include vendor-prefix(transition, all linear .4s );
+    width: 100%;
+  }
+
+  .about-blurb.fade-it {
+    opacity: 1.0;
+  }
+
+  .about-wrap {
+    width: 100%;
+    font-size: 1.3rem;
+
+    .about-wrap-summary{
+      width: 40%;
+      margin: 1rem 3%;
+      background: $nav;
+      padding: 2rem 3%;
+      @include vendor-prefix(border-radius, 25px);
+      border: $offwhite solid 2px;
+      color: $offwhite;
+      float: left;
+
+      p {
+        em {color: $light-blue;}
+        margin-bottom: 1rem;
+      }
+    }
+  }
+  .about-quick {
+    width: 40%;
+    margin-right: 6%;
+    float: right;
+    color: $offwhite;
+    h3 {
+      text-align: center;
+      text-decoration: underline;
+    }
+    ul {
+      list-style: none;
+      margin: 1rem 3%;
+      li {
+        line-height: 2.5rem;
+        em {
+          text-decoration: none;
+          color: $nav;
+        }
+        span {
+          font-family: 'icomoonregular';
+          font-size: 2rem;
+          padding-right: .5rem;
+          color: $nav;
+        }
+      }
+    }
+  }
+
+  .section-3 {
+    position: relative;
+    background: url('http://kylevalenzuela.com/wp-content/uploads/2014/01/comic-section-e1389869537613.jpg') center fixed;
+    width: 100%;
+    height: 450px;
+    z-index: 4000;
+    display: block;
+    color: $light-blue;
+  }
+  
+  .section-3-bg {
+    position: absolute;
+    margin: 2.5rem 10% 2rem 8%;
+    height: 80%;
+    width: 80%;
+    background: rgba(0, 0, 0, .7);//rgba(34,68,102, .5);
+    @include vendor-prefix(border-radius, 25px);
+    border: $light-blue solid 2px;
+    h1 {
+      padding-top: .2rem;
+      border-bottom: $light-blue solid 2px;
+      line-height: 2.5rem;
+      text-align: center;
+    }
+    p {
+        margin: 1rem 10%;
+        font-size: 1.5rem;
+      }
+  }
+
+  .section-4 {
+    position: relative;
+    height: 480px;
+    z-index: 6005;
+    background: $offwhite fixed;
+    
+    h1 {
+      font-size: 4rem;
+      text-align: center;
+      padding: 1rem 6rem 1rem 0; 
+      color: $nav;
+      border-bottom: $nav solid 2px;
+      line-height: 3rem;
+    }
+  }
+
+  .section-4-wrap {
+    width: 100%;
+    margin: 2rem 2%;
+    opacity: 0;
+    @include vendor-prefix(transition, opacity linear .8s );
+  
+
+    .section-4-1, 
+    .section-4-2, 
+    .section-4-3 {
+      float: left;
+      width: 28%;
+      margin-left:2%;
+      
+      h3 {
+        text-align: center;
+        margin-bottom: 0rem;
+        margin-top: -1rem;
+        border-bottom: $light-blue solid 2px;
+        line-height: 2rem;
+        color: $light-blue;
+        @include vendor-prefix(transition, margin-top linear .4s );
+        
+        &.move-it {
+          margin-top: 0;
+        }
+      }
+      ul {
+        margin-top: 2rem;
+
+        li {
+          padding-left: -10%;
+          margin-bottom: .7rem;
+          font-size: 1.1rem;
+          list-style: none;
+          color: $nav;
+          @include vendor-prefix(transition, padding-left linear .4s );
+
+          &.sweep-it {
+            padding-left: 5%;
+          }
+          em {color: $light-blue;}
+        }
+      }
+    }
+    .section-4-2 ul li,
+    .section-4-3 ul li{
+        margin: auto 20%;
+        text-align: center;
+        font-size: 1.3rem;
+        margin-bottom: .2rem;
+    }
+  }
+  .section-4-wrap.fadeit {
+    opacity: 1;
+  }
+
+  .section-5 {
+    position: relative;
+    width: 100%;
+    z-index: 20000;
+    background: $nav-highlight;
+
+    .section-5-image {
+      position: absolute;
+      background: url('http://kylevalenzuela.com/wp-content/uploads/2014/01/IMG_5540-e1389843517502.jpg') top center fixed;
+      width: 100%;
+      height: inherit;
+      z-index: 14000;
+    }  
+
+    .section-5-wrap {
+      background: $nav-highlight;
+      padding-top: 1.3rem;
+    }
+
+    .section-5-header {
+      position: relative;
+
+      h1 {
+        font-size: 4rem;
+        margin-top: .5rem;
+        padding-left: 5%;
+        margin-bottom: 1rem;
+        position: relative;
+        color: $nav;
+
+      }
+      h4 {
+        padding: .8rem 0 .5rem 5%;
+        border-bottom: $nav solid 2px;
+        position: relative;
+        color: white;
+        a {
+          color: $light-blue;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+ 
+  .form-wrap {
+      position: relative;
+      width: 100%;
+  } 
+  
+
+ /* *************
+  Email Form  
+  ******************/
+
+  .nl-form {
+    margin: 0 auto 0 auto;
+    font-size: 3.1rem;
+    line-height: 1.5;
+    color: white;
+
+    p {
+    margin: 1rem 20% 0 20%;
+    }
+  }
+
+  .nl-form ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* normalize the input elements, make them look like everything else */
+  .nl-form input,
+  .nl-form select {
+    border: none;
+    background: transparent;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+  }
+
+  .nl-form input:focus {
+    outline: none;
+  }
+
+  /* custom field (drop-down, text element) styling  */
+  .nl-field {
+    display: inline-block;
+    position: relative;
+    }
+
+  .nl-field.nl-field-open {
+    z-index: 10001;
+  }
+
+  /* the toggle is the visible part in the form */
+  .nl-field-toggle,
+  .nl-form input,
+  .nl-form select  {
+    display: inline-block;
+    color: $links;
+    cursor: pointer;
+    background: $nav;
+    @include vendor-prefix(border-radius, 50px);
+    padding: .5rem 1rem;
+    margin-bottom: .5rem;
+  }
+
+
+  /* drop-down list / text element */
+  .nl-field ul {
+    position: absolute;
+    visibility: hidden;
+    background: $nav;
+    left: -0.5em;
+    top: 8rem;
+    font-size: 80%;
+    opacity: 0;
+    border: $light-blue solid 2px;
+    @include vendor-prefix(border-radius, 50px);
+    -webkit-transform: translateY(-40%) scale(0.9);
+    -moz-transform: translateY(-40%) scale(0.9);
+    transform: translateY(-40%) scale(0.9);
+    -webkit-transition: visibility 0s 0.3s, opacity 0.3s, -webkit-transform 0.3s;
+    -moz-transition: visibility 0s 0.3s, opacity 0.3s, -moz-transform 0.3s;
+    transition: visibility 0s 0.3s, opacity 0.3s, transform 0.3s;
+    padding: 5%;
+  }
+
+  .nl-field.nl-field-open ul {
+    visibility: visible;
+    opacity: 1;
+    -webkit-transform: translateY(-50%) scale(1);
+    -moz-transform: translateY(-50%) scale(1);
+    transform: translateY(-50%) scale(1);
+    -webkit-transition: visibility 0s 0s, opacity 0.3s, -webkit-transform 0.3s;
+    -moz-transition: visibility 0s 0s, opacity 0.3s, -moz-transform 0.3s;
+    transition: visibility 0s 0s, opacity 0.3s, transform 0.3s;
+  }
+
+  .nl-field ul li {
+    color: $light-blue;
+    position: relative;
+    @include vendor-prefix(transition, color .5s cubic-bezier(.53,.31,.46,.91));
+
+    &:hover, &:active {
+      color: $links;
+    }
+  }
+
+  .nl-dd ul li {
+    padding: 0 1.5em 0 0.5em;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+
+  .nl-dd ul li.nl-dd-checked {
+    color: $links;
+    background: $nav-highlight;
+  }
+
+  .no-touch .nl-dd ul li:hover {
+    background: rgba(0,0,0,0.05);
+  }
+
+  .no-touch .nl-dd ul li:hover:active {
+    color: #478982;
+  }
+
+  /* icons for some elements */
+  .nl-dd ul li.nl-dd-checked:before,
+  .nl-submit:before,
+  .nl-field-go:before {
+    font-family: 'icomoonregular';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .nl-dd ul li.nl-dd-checked:before {
+    content: "]";
+    position: absolute;
+    right: 1em;
+    font-size: 50%;
+    line-height: 3;
+  }
+
+  .nl-ti-text ul {
+    min-width: 8em;
+  }
+
+  .nl-ti-text ul li.nl-ti-input input {
+    padding: 0.2em 2em 0.2em 0.5em;
+    border-bottom: none;
+    color: $light-blue;
+  }
+
+  .nl-form .nl-field-go {
+    position: absolute;
+    right: 2.5rem;
+    top: 0;
+    height: 100%;
+    cursor: pointer;
+    width: 2rem;
+    text-align: center;
+    background: transparent;
+    border: none;
+  }
+
+  .nl-field-go:before {
+    content: "]";
+    font-size: 2rem;
+    font-family: 'icomoonregular';
+    color: $links;
+    width: 100%;
+    line-height: 2.5;
+    display: block;
+
+  }
+
+  /* custom placeholder color */
+  input::-webkit-input-placeholder {
+    color: $light-blue/1.2;
+  }
+
+  input:active::-webkit-input-placeholder ,
+  input:focus::-webkit-input-placeholder {
+    color: $light-blue;
+  }
+
+  input::-moz-placeholder {
+    color: rgba(255,255,255,0.8);
+  }
+
+  input:active::-moz-placeholder,
+  input:focus::-moz-placeholder {
+    color: rgba(255,255,255,0.2);
+  }
+
+  input:-ms-input-placeholder {  
+    color: rgba(255,255,255,0.8);
+  }
+
+  input:active::-ms-input-placeholder ,
+  input:focus::-ms-input-placeholder {
+    color: rgba(255,255,255,0.2);
+  }
+
+  /* example field below text input */
+  .nl-ti-text ul li.nl-ti-example {
+    font-size: 40%;
+    font-style: italic;
+    font-weight: 400;
+    padding: 0.4em 1em;
+    color: rgba(0,0,0,0.2);
+    border-top: 1px dashed $links;
+  }
+
+  .nl-ti-text ul li.nl-ti-example em {
+    color: #fff
+  }
+
+  /* submit button */
+  .nl-submit-wrap {
+    padding-top: 3rem;
+    font-family: 'Amaranth', sans-serif;
+  }
+
+  .nl-form .nl-submit {
+    line-height: 3;
+    cursor: pointer;
+    position: relative;
+    background: $nav;
+    color: $light-blue;
+    padding: 0 .5rem 0 0;
+    font-size: 40%;
+    font-weight: bold;
+    letter-spacing: 3px;
+    @include vendor-prefix(border-radius, 25px);
+    @include vendor-prefix(transition, color .5s cubic-bezier(.53,.31,.46,.91));
+    border: $light-blue solid 2px;
+    margin-left: 20%;
+    margin-bottom: 5.4rem;
+    &:hover {
+      color: $links;
+    }
+  }
+
+  .nl-submit:before {
+    content: "]";
+    color: $links;
+    float: left;
+    padding: 0 .5rem 0 1.2rem;
+    margin: 0 .1rem 0 0;
+
+    &:before:before {
+      color: $links;
+    }
+  }
+
+  .no-touch .nl-form .nl-submit:hover,
+  .no-touch .nl-form .nl-submit:active {
+    background: #69B1A9;
+  }
+
+  .no-touch .nl-form .nl-submit:hover:before {
+    background: #58a199;
+  }
+
+  /* overlay becomes visible when a field is opened */
+  .nl-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    opacity: 0;
+    z-index: 9999;
+    visibility: hidden;
+    -webkit-transition: visibility 0s 0.3s, opacity 0.3s;
+    -moz-transition: visibility 0s 0.3s, opacity 0.3s;
+    transition: visibility 0s 0.3s, opacity 0.3s;
+  }
+
+  .nl-field.nl-field-open ~ .nl-overlay {
+    opacity: 1;
+    visibility: visible;
+    -webkit-transition-delay: 0s;
+    -moz-transition-delay: 0s;
+    transition-delay: 0s;
+  }
+
+  .section-message {
+    width: 100%;
+    height: 200px;
+    background: $nav;
+    outline: none;
+    color: $light-blue;
+    font-size: 2rem;
+    font-family: 'Amaranth', sans-serif;
+    @include vendor-prefix(border-radius, 25px);
+    padding: 1rem 0 0 1rem;
+
+    &:focus, &:active {
+      border: $light-blue solid 2px;      
+    }
+  }
+  .section-send {
+    background: blue;
+  }
+
+  /* *************
+  Footer 
+  ******************/
+
+  footer {
+    position: fixed;
+    width: 100%;
+    left:50px;
+    bottom:0;
+    padding: .5rem 0;
+    text-align: center;
+    background: $offwhite;
+    z-index: 29999;
+   @include vendor-prefix(transition, left cubic-bezier(.53,.31,.46,.91) .5s);
+    a {
+      text-decoration: none;
+      color: $nav; 
+    }
+  }
+  
+  .error {
+    text-align: center;
+    position: relative;
+    h1 {
+      color: $nav;
+      position: relative;
+      margin-top: 8rem;
+    }
+    h4 {
+     color: $light-blue;
+     margin-top: 2rem;
+    }
+
+    .dino {
+      font-family: 'icomoonregular';
+      color: $light-blue;
+      font-size: 10rem;
+      margin-top: 2rem;
+      @include vendor-prefix(animation, spin 5s infinite);
+      @include vendor-prefix(transition, ease-in-out .4s);
+      
+      &:hover {
+        font-size: 11rem;
+        color: $nav;
+      }
+    }
+  }
+  @-moz-keyframes spin {
+    from { -moz-transform: rotate(0deg); }
+    to { -moz-transform: rotate(360deg); }
+  }
+
+  @-webkit-keyframes spin {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+  }
+
+  @keyframes spin {
+      from {transform:rotate(0deg);}
+      to {transform:rotate(360deg);}
+  }
+}
+
+
+/******************************************************************
+*****************************************************************
+MEDIA QUERY: TABLET SIZE (768px-1159px)
+***********************************************************************************
+*****************************************************************/
+
+@media only screen 
+and (min-width : 768px) 
+and (max-width : 1159px) {
+
+nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 200px;
+    height: 100%;
+    overflow: hidden;
+    cursor: default;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: $nav;
+    font-family: 'Amaranth', sans-serif;
+    cursor: auto;
+    clear:both;
+    z-index: 5000;
+    -webkit-touch-callout: none;
+
+
+    &:after {
+      width: 200px;
+      display: block;
+      cursor: auto;
+    }
+  }
+
+  nav ul {
+    list-style: none;
+  }
+
+  nav ul li a {
+    display: block;
+    padding: 2px;
+    color: $light-blue;
+    font-size: 1.8em;
+    font-weight: normal;
+    text-decoration: none;
+  }
+  
+  .nav-selected  {
+    background: $nav-highlight;
+  }
+  
+ .header-logo {
+  position: relative;
+  height: 80px;
+  width: 80px;
+  background:url(http://kylevalenzuela.com/wp-content/uploads/2013/12/me1.png);
+  background-size:100% 100%;
+  background-repeat:no-repeat;
+  margin: 20px auto -40px auto; 
+  }
+
+  .name {
+    a {
+      position: fixed;
+      display: block;
+      text-decoration: none;
+      margin: 50px 0 0 12px;
+      font-size: 1.8em;
+      color: $links; 
+      @include vendor-prefix(transition, .5s cubic-bezier(.53,.31,.46,.91));
+    }
+  }
+
+  .back-mobile {
+    display: none;
+  }
+
+  .main-nav {
+    position: relative;
+    text-decoration: none;
+    list-style-type: none;
+    margin: 100px 0 0 0px;  
+    
+    ul {
+      position: relative;
+      font-size: 1.8em;
+      text-decoration: none;
+    }  
+
+    li {
+      position: relative;
+      @include vendor-prefix(transition, ease-in-out .4s);
+
+      &.current_page_item a{
+        color: $links;
+      }
+     
+      a:hover, a:focus   {
+        color: $links;
+        background: $nav-highlight;
+      }
+      
+      &:active a {
+        background: $nav-highlight;
+      }
+
+      &:last-child a {
+        position: relative;
+        border-bottom: 1px solid $light-blue/1.8;  
+        overflow: hidden;
+      }
+    } 
+
+    a {
+      color:$light-blue;
+      float: left;
+      border-top: 1px solid $light-blue/1.8;
+      width: 200px;
+      @include vendor-prefix(transition, ease-in-out .4s);
+      overflow: hidden;
+    }
+   
+    a:focus{
+       background: $nav-highlight;
+    }
+
+    span {
+      position: relative;
+      float: left;
+      margin-left: 0px;
+      @include vendor-prefix(transition, .5s cubic-bezier(.53,.31,.46,.91)); 
+    }
+  }
+  
+  .icon-font{
+    position: relative;
+    font-family: 'icomoonregular';
+    font-weight: normal;
+    margin: 0 20px 0 11px;
+    float: left;
+  }
+
+   .mobile-nav {
+    display: none;
+  }
+
+
+  /* Content wrapper (besides .nav)  */
+
+  .page-wrap {
+    position: fixed;
+    background: $offwhite;
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    z-index: 100;
+    top: 0;
+    margin-left: 200px;
+    max-width: 100%;
+  }
+
+  /* *************
+  Portfolio Categories 
+  ******************/
+  
+  .cat-container {
+    margin: 3em 0 1.6em 0;
+    width: 75%;
+    text-align: center;
+  }
+  
+  .portfolio-cat {
+
+    position: relative;
+    max-width: 100%;
+    display: inline-block;
+
+    h4 {
+      background: $nav; 
+      margin-left: 1em;
+      padding: .6rem .6rem;
+      @include vendor-prefix(border-radius, 50px);
+
+    }
+    a {
+      text-decoration: none; 
+      color: $light-blue;
+
+      &:hover, &:focus, &:active {
+        color: $links;
+      }
+
+    }
+  }
+
+  .porfolio-cat-flex {
+    position: relative;
+    width: auto;
+    float: left;
+    padding: 0 1.9% 0 5.1%;
+    margin-right: 200px;
+    margin-bottom: 3.6rem;
+  }
+
+  .portfolio-item {
+    position: relative;
+    width: 45%;
+    height: 45%;
+    float: left;
+    margin-right: 2.5%;
+    margin-bottom: 2.5%;
+    
+
+    img {
+      max-width: 100%;
+      max-height: 100%;
+      width: 100%;
+     @include vendor-prefix(border-radius, 25px);
+    }
+
+
+    span {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 35%;
+      background: rgb(0, 0, 0); /* fallback color */
+      background: rgba(0, 0, 0, 0.6);
+      overflow: hidden;
+      @include vendor-prefix(border-radius, 0 0 25px 25px);
+
+      h3 {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        text-decoration: underline;
+        margin-top: 2%;
+        font-size: 1.4rem;
+        color: $links;
+      }
+     
+      
+
+      h5 {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        color: $links;
+        margin-top: 13%;
+        font-size: 1rem;
+        display:inline-block;
+
+        .i {
+          position: relative;
+          font-family: 'icomoonregular';
+          font-weight: normal;
+          margin-right: .5rem;
+          display:inline-block;
+        }
+        p {
+          position: relative;
+          margin-right: .8rem;
+          display:inline-block;
+        }
+      }
+    }
+  }
+
+  /* *************
+  Single Blog Post  
+  ******************/
+
+  
+  .post-pic {
+    /* background-image in HTML for PHP */
+    height: 60%;
+    width: 100%;
+    position: relative;
+    background-size: 100% ;
+    background-color: rgba(0,0,0, .1);
+    background-position: left top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    @include vendor-prefix(transition, background linear 1s );
+
+    &:after {
+      position: relative;
+      top: 0; right: 0; bottom: 0; left: 0;
+      background-color: inherit;
+      content: ' ';
+    }
+  }
+
+  .header-content {
+    position: relative;
+    top: 81%;
+    background-color: rgba(0,0,0, .6);
+    color: white;
+    padding: 1rem 5% 1rem 5%;
+    max-width: 100%;
+
+    h1 {
+      margin-bottom: .9rem;
+      font-size: 2rem;
+      line-height: inherit;
+    }
+
+    p {
+      color: $light-blue;
+    }
+  }
+
+  .post-pic.fade-pic {
+    background-color: rgba(0,0,0,.87);
+    background-image: none;
+  }
+
+  .post {
+    position: relative; 
+    background: $offwhite;
+    color: $gray;
+    max-width: 100%;
+  }
+  
+  .entry {
+    max-width: 100%;
+    padding: 1rem 10%;
+    margin-right: 200px;
+    margin-top: 2rem;
+    font-size: 1.3rem;
+    margin-bottom: 4rem;
+    
+    h3 {
+      color: $nav;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+    }
+
+    a {
+      color: $nav;
+      text-decoration: underline;
+      
+
+      &:hover, &:active, &:focus  {
+        background: $nav;
+        @include vendor-prefix(border-radius, 50px);
+        padding: .3rem;
+        margin: -.3rem;
+        color: $links;  
+        text-decoration: none;
+      }
+    }
+
+    blockquote {
+      padding: 1rem 5%;
+      background: $nav-highlight;
+      @include vendor-prefix(border-radius, 25px);
+      color: $nav;
+      font-size: 1.7rem;
+      margin-bottom: 1rem;
+    }
+
+    .tags {
+      margin: 3rem 0 2rem 0;
+      color: $light-blue;
+      
+      ul {
+        li {
+          display: inline-block;     
+          margin-right: 1rem; 
+          background: $nav;
+          @include vendor-prefix(border-radius, 50px);
+          margin-bottom: 1rem;
+
+          a {
+            text-decoration: none;
+            color: $light-blue;
+            padding: .8rem;
+            margin: .3rem;
+
+            &:hover, &:active, &:focus  {
+              color: $links;
+              background: transparent;
+              padding: .8rem;
+            }
+          }
+        }
+      }
+    }
+    .follow-me {
+      
+      a {
+        text-decoration: underline;
+
+        &:hover, &:active, &:focus {
+          margin: -.3rem !important;
+          padding: .3rem !important;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+     /* *************
+  Portfolio Content 
+  ******************/
+  
+  .port-title {
+    margin-top: 2.5rem;
+    margin-left: 5%;
+    color: $nav;
+  }
+
+   /* *************
+  Blog Homepage / Blogroll   
+  ******************/
+
+  .blogroll {
+    position: relative;
+    margin: 2rem 7% 5rem 7%;
+    padding-right: 200px;
+
+    .post-roll {
+    position: relative;
+    display:inline-block;  
+    width: 100%;
+    padding: 1rem 0;
+
+      &:nth-child(even) {
+          background: $nav-highlight;
+          @include vendor-prefix(border-radius, 25px);
+          
+      }
+      .featured-img {
+        width: 30%;
+        display: block;
+        float: left;
+        margin-right: 1rem;
+        margin-left: 2rem;
+
+        img {
+          max-width: 100%;
+          @include vendor-prefix(border-radius, 25px);
+        }
+      }
+
+      .entry-roll {
+        @extend  .entry;
+        margin: 0 -8% 2rem 0;
+
+        .roll-date {
+          color: $light-blue;
+          padding-top: .5rem;
+
+        }
+
+        h2 {
+          margin-bottom: .7rem;
+          font-size: 1.7rem;
+          line-height: 2rem;
+        }
+
+        .tags-roll {
+          @extend .tags;
+          margin-bottom: 1rem;
+        }
+      }
+    }
+  }
+
+   /* *************
+  Archive
+  ******************/
+
+  .arch-tags {
+    color: $light-blue;
+    padding-top: .9rem;
+  }
+
+    /* *************
+  About  
+  ******************/
+  .about-wrap {
+    padding-right: 200px;
+  }
+
+  .section-1 {
+    position: relative; 
+    width: 100%;
+    height: 518px;
+    max-width: 100%;
+    background: url('http://kylevalenzuela.com/wp-content/uploads/2014/01/kyle-me-e1389934587429.jpg') center no-repeat fixed;
+
+  }
+  .section-1-overlay {
+      width: 100%;
+      height: 100%;
+      background: $nav-highlight; //rgba(255, 255, 255, 0.3);
+    }
+
+  .welcome-text {
+    position: relative;
+    top: 0;
+    text-align: center;
+    z-index: 100;
+    padding-top: 6rem;
+    overflow-y : auto;
+    padding-right: 200px;
+
+    h1 {
+      font-size: 3.5rem;
+      margin-bottom: 2.6rem;
+      color: $offwhite;
+
+    }
+    h3 {
+      color: $offwhite;
+      margin-bottom: 7rem;
+      span {
+        font-family: 'icomoonregular';
+        font-size: 9rem;
+        font-weight: 100;
+        color: rgba(255, 255, 255, .6)
+      }
+    }
+
+  }
+
+  .section-2 {
+    width: 100%;
+    position: relative;
+    background: $light-blue;
+    height: 670px;
+    z-index: 3050;
+
+    h1 {
+      font-size: 3rem;
+      text-align: center;
+      padding: 2rem 0 2rem 0; 
+      color: $nav;
+      border-bottom: $nav solid 2px;
+      @include vendor-prefix(animation, fadein 2s);
+      padding-right: 200px;
+    }
+  }
+
+  .about-blurb {
+    @include vendor-prefix(transition, all linear .4s );
+    width: 100%;
+  }
+
+  .about-wrap {
+    width: 100%;
+    font-size: 1.2rem;
+
+    .about-wrap-summary{
+      width: 100%;
+      background: $nav;
+      color: $offwhite;
+      float: left;
+
+
+      p {
+        em {color: $light-blue;}
+        margin-bottom: 1rem;
+        margin: 1.3rem 10%;
+        padding-right: 200px;
+
+      }
+    }
+  }
+  .about-quick {
+    width: 100%;
+    float: left;
+    color: $offwhite;
+    h3 {
+      text-align: center;
+      text-decoration: underline;
+    }
+    ul {
+      list-style: none;
+      margin: 4%;
+      width: 70%;
+      text-align: center;
+      li {
+        margin-bottom: .5%;
+        em {
+          text-decoration: none;
+          color: $nav;
+        }
+        span {
+          font-family: 'icomoonregular';
+          font-size: 2rem;
+          padding-right: .5rem;
+          color: $nav;
+        }
+      }
+    }
+  }
+
+  .section-3 {
+    position: relative;
+    background: url('http://kylevalenzuela.com/wp-content/uploads/2014/01/comic-section-e1389869537613.jpg') center fixed;
+    width: 100%;
+    height: 450px;
+    z-index: 4000;
+    display: block;
+    color: $light-blue;
+  }
+  
+  .section-3-bg {
+    position: absolute;
+    margin: 2rem 10% 0 4%;
+    
+    height: auto;
+    width: 70%;
+    background: rgba(0, 0, 0, .7);//rgba(34,68,102, .5);
+    @include vendor-prefix(border-radius, 25px);
+    border: $light-blue solid 2px;
+    max-width: 100%;
+
+    h1 {
+      padding-top: .2rem;
+      border-bottom: $light-blue solid 2px;
+      line-height: 2.5rem;
+      text-align: center;
+    }
+    p {
+        margin: 1rem 5%;
+        font-size: 1.27rem;
+      }
+  }
+
+
+  .section-4 {
+    position: relative;
+    height: 960px;
+    z-index: 6005;
+    background: $offwhite;
+    
+    h1 {
+      font-size: 3rem;
+      text-align: center;
+      color: $nav;
+      border-bottom: $nav solid 2px;
+      line-height: 4rem;
+      padding-right: 200px;
+
+    }
+  }
+
+  .section-4-wrap {
+    width: 100%;
+    @include vendor-prefix(transition, opacity linear .8s );
+
+    .section-4-1, 
+    .section-4-2, 
+    .section-4-3 {
+      float: left;
+      width: 100%;
+
+      h3 {
+        text-align: center;
+        margin-bottom: 0rem;
+        margin-top: 1rem;
+        border-bottom: $light-blue solid 2px;
+        line-height: 2rem;
+        color: $light-blue;
+        @include vendor-prefix(transition, margin-top linear .4s );
+        font-size: 1.5rem;
+        padding-right: 200px;
+
+
+        &.move-it {
+          margin-top: 0;
+        }
+      }
+      ul {
+        margin-top: 1rem;
+        padding: 0 5% 0 5%;
+
+
+        li {
+          font-size: 1rem;
+          list-style: none;
+          padding-right: 200px;
+          color: $nav;
+          text-align: justify;
+          @include vendor-prefix(transition, padding-left linear .4s );
+          text-align: center;
+
+         
+          em {color: $light-blue;}
+        }
+      }
+    }
+    .section-4-2 ul li,
+    .section-4-3 ul li,
+    {
+        margin: auto 20%;
+        text-align: center;
+        font-size: 1.3rem;
+        margin-bottom: .2rem;
+        padding-right: 200px;
+
+    }
+  }
+
+  .section-5 {
+    position: relative;
+    width: 100%;
+    height: 900px;
+    z-index: 20000;
+    background: $nav-highlight;
+
+    .section-5-image {
+      position: absolute;
+      background: url('http://kylevalenzuela.com/wp-content/uploads/2014/01/IMG_5540-e1389843517502.jpg') top center fixed;
+      width: 100%;
+      height: inherit;
+      z-index: 14000;
+      padding-bottom: 5rem;
+    }  
+
+    .section-5-wrap {
+      background: $nav-highlight;
+      padding-top: 1.3rem;
+        padding: auto 5%;
+
+    }
+
+    .section-5-header {
+      position: relative;
+
+
+      h1 {
+        font-size: 3rem;
+        margin-top: .5rem;
+        padding-left: 5%;
+        margin-bottom: 1rem;
+        position: relative;
+        color: $nav;
+
+      }
+      h4 {
+        float: left;  
+        width: 96%;      
+        border-bottom: $nav solid 2px;
+        line-height: 1.4rem;
+        position: relative;
+        color: white;
+        padding-left: 5%;
+        font-size: 1rem;
+      }
+    }
+  }
+ 
+  .form-wrap {
+      position: relative;
+      width: 100%;
+  } 
+  
+
+ /* *************
+  Email Form  
+  ******************/
+
+  
+
+
+
+  /* *************
+  Footer 
+  ******************/
+
+  footer {
+    position: fixed;
+    width: 100%;
+    bottom:0;
+    padding: .5rem 0;
+    text-align: center;
+    background: $offwhite;
+    a {
+      text-decoration: none;
+      color: $nav; 
+      margin-right: 20%;
+
+    }
+  }
+
+  /* *************
+  404 
+  ******************/
+
+  .error {
+    text-align: center;
+    position: relative;
+    h1 {
+      color: $nav;
+      position: relative;
+      margin-top: 8rem;
+    }
+    h4 {
+     color: $light-blue;
+     margin-top: 2rem;
+    }
+    .dino {
+      font-family: 'icomoonregular';
+      color: $light-blue;
+      font-size: 10rem;
+      margin-top: 2rem;
+      @include vendor-prefix(animation, spin 5s infinite);
+
+
+    }
+  }
+  @-moz-keyframes spin {
+    from { -moz-transform: rotate(0deg); }
+    to { -moz-transform: rotate(360deg); }
+  }
+
+  @-webkit-keyframes spin {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+  }
+
+  @keyframes spin {
+      from {transform:rotate(0deg);}
+      to {transform:rotate(360deg);}
+  }
+}
+
+/******************************************************************
+*****************************************************************
+MEDIA QUERY:  SMALL WIDTH WINDOW && PHONE SIZE (767px - 0px)
+***********************************************************************************
+*****************************************************************/
+
+@media only screen and (max-width : 767px), 
+(max-device-width : 767px) {
+
+/*************
+Main Nav
+*************/
+
+  nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 3.125rem;
+    width: 100%;
+    cursor: default;
+    background: $nav;
+    font-family: 'Amaranth', sans-serif;
+    cursor: auto;
+    clear:both;
+    display: inline-block;
+    z-index: 5000;
+    border-bottom: 1px solid $light-blue/1.8;  
+
+
+    .header-logo {
+      position: relative;
+      height: 69px;
+      width: 69px;
+      background:url(http://kylevalenzuela.com/wp-content/uploads/2013/12/me1.png);
+      background-size: 80% 80%;
+      background-repeat:no-repeat;
+      background-color: $nav;
+      background-position: center;
+      @include vendor-prefix(border-radius, 0 0 50px 50px);
+      margin: .7rem 5% 0 0;
+      display: inline-block;
+      float: right;
+    }
+
+    .name {
+      position: fixed;
+      width: 100%;
+      text-align: center;
+      margin-top: .44rem;
+
+      a {
+      text-decoration: none;
+      font-size: 1.5rem;
+      color: $links; 
+      }
+    }
+
+    .back-mobile {
+      position: fixed;
+      height: 40px; 
+      width: 40px;
+      background: $light-blue;
+      @include vendor-prefix(border-radius, 50px);
+      margin: .3rem 0 0 5%;
+      z-index: 6000;
+      
+      &:hover, &:active, &:focus {
+          background: $links;
+      }   
+      .ico {
+        font-family: 'icomoonregular';
+        font-size: 1.8rem;
+        margin: .1rem 0 .2rem .2rem;
+      }
+      a {
+        color: $nav;
+        text-decoration: none;
+        @include vendor-prefix(border-radius, 50px);
+      }
+    }
+
+    ul {
+      list-style: none;
+      display: inline-block;
+      padding-bottom: 2rem;
+      float: right;
+      display: none;
+
+
+      li {
+        display: inline-block;
+        float: left;
+
+        a {
+          color: $light-blue;
+          font-size: 2rem;
+          background: $nav;
+
+        }
+        
+        span {
+          display: none;
+        }
+
+      }
+    }
+  }
+
+  /*************
+  Mobile  Home Nav
+  *************/
+  
+  .mobile-nav {
+    width: 100%;
+    text-align: center;
+    background: $nav;
+    position: relative;
+    font-size: 1.8em;
+    border-bottom: 1px solid $light-blue/1.8;
+
+
+
+    a {
+      color:$light-blue;
+      text-decoration: none;
+      width: 100%;
+      height:100%;
+      @include vendor-prefix(transition, .5s cubic-bezier(.53,.31,.46,.91)); 
+    }
+    
+    li {
+      border-bottom: 1px solid $light-blue/1.8;
+      padding: .5rem;
+      height:100%;
+      width: 100%;
+      @include vendor-prefix(transition, .5s cubic-bezier(.53,.31,.46,.91)); 
+
+      &.current_page_item a{
+        color: $links;
+      }
+
+
+      &:hover , &:active , &:focus {
+        background: $nav-highlight;
+      }
+      
+      &:hover a, &:active a, &:focus a{
+        color: $links;
+      }
+      
+      &:last-child {
+        border-bottom: 0px solid $light-blue/1.8;
+        text-align: center;
+      }
+    }
+
+   .icon-font{
+      position: relative;
+      font-family: 'icomoonregular';
+      font-weight: normal;
+      display: inline-block;
+      margin-right: 1rem;
+      
+      &:last-child {
+        margin-right: 2rem;
+      }
+    }
+  }
+
+
+  /* Content wrapper (besides .nav)  */
+
+  .page-wrap {
+    position: fixed;
+    background: $offwhite;
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    z-index: 100;
+    top: 0;
+    max-width: 100%;
+    padding-top: 3.125rem;
+  }
+
+
+  /* *************
+  Portfolio Categories 
+  ******************/
+  
+  .cat-container {
+    margin: 3em 0 1.6em 0;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .portfolio-cat {
+    position: relative;
+    max-width: 100%;
+    display: block;
+
+    h4 {
+      background: $nav; 
+      padding: .6rem .6rem;
+      margin: 0 5% .5rem 5%;
+      @include vendor-prefix(border-radius, 50px);
+
+    }
+    a {
+      text-decoration: none; 
+      color: $light-blue;
+      @include vendor-prefix(transition, color linear .3s );
+
+      &:hover, &:focus, &:active {
+        color: $links;
+      }
+    }
+  }
+
+  .porfolio-cat-flex {
+    float: left;
+    position: relative;
+    width: auto;
+    padding: 2.135rem 0 17% 0;
+  }
+
+  .portfolio-item {
+    position: relative;
+    height: 90%;
+    float: left;
+    margin-bottom: 2.5%;
+    margin: 0 5% 2rem;;
+    
+
+    img {
+      max-width: 100%;
+      max-height: 100%;
+      width: 100%;
+     @include vendor-prefix(border-radius, 25px);
+    }
+
+
+    span {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 20%;
+      background: rgb(0, 0, 0); /* fallback color */
+      background: rgba(0, 0, 0, 0.6);
+      overflow: hidden;
+      @include vendor-prefix(border-radius, 0 0 25px 25px);
+
+      h3 {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        text-decoration: underline;
+        margin-top: 5%;
+        font-size: 1.4rem;
+        color: $links;
+      }
+     
+      
+
+      h5 {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        color: $links;
+        margin-top: 10%;
+        font-size: 1rem;
+        display:inline-block;
+
+        .i {
+          display: none;
+        }
+        p {
+          display:none;
+        }
+      }
+    }
+  }
+
+  /* *************
+  Single Blog Post  
+  ******************/
+  
+  .post-pic {
+    /* background-image in HTML for PHP */
+    height: 22%;
+    width: 100%;
+    position: relative;
+    background-size: 100% ;
+    background-color: rgba(0,0,0, .1);
+    background-repeat: no-repeat;
+    background-position-y: 3rem; 
+    background-attachment: fixed;
+    @include vendor-prefix(transition, background linear 1s );
+
+    &:after {
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      background-color: inherit;
+      content: ' ';
+    }
+  }
+
+  .header-content {
+    position: relative;
+    background-color: rgba(0,0,0, .6);
+    color: white;
+    height:68%;
+    padding: 2.1rem 0 1rem 5%;
+
+    h1 {
+      margin-bottom: .9rem;
+      font-size: 1.625rem;
+      line-height: 1.4rem;
+    }
+
+    p {
+      color: $light-blue;
+    }
+  }
+
+  .post-pic.fade-pic {
+    background-color: rgba(0,0,0,.87);
+    background-image: none;
+  }
+
+  .post {
+    position: relative; 
+    background: $offwhite;
+    color: $gray;
+    max-width: 100%;
+  }
+  
+  .entry {
+    max-width: 100%;
+    padding: 1rem 10%;
+    margin-top: 2rem;
+    font-size: 1.3rem;
+    margin-bottom: 4rem;
+    
+    h3 {
+      color: $nav;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 90%;
+      margin-bottom: 1rem;
+    }
+
+    a {
+      color: $nav;
+      text-decoration: underline;
+      
+
+      &:hover, &:active, &:focus  {
+        background: $nav;
+        @include vendor-prefix(border-radius, 50px);
+        padding: .3rem;
+        margin: -.3rem;
+        color: $links;  
+        text-decoration: none;
+      }
+    }
+
+    blockquote {
+      padding: 1rem 5%;
+      background: $nav-highlight;
+      @include vendor-prefix(border-radius, 25px);
+      color: $nav;
+      font-size: 80%;
+      margin-bottom: 1rem;
+    }
+
+    .tags {
+      margin: 3rem 0 2rem 0;
+      color: $light-blue;
+      
+      ul {
+        li {
+          display: inline-block;     
+          margin-right: 1rem; 
+          background: $nav;
+          @include vendor-prefix(border-radius, 50px);
+
+          a {
+            text-decoration: none;
+            color: $light-blue;
+            padding: .8rem;
+            margin: .3rem;
+
+            &:hover, &:active, &:focus  {
+              color: $links;
+              background: transparent;
+              padding: .8rem;
+            }
+          }
+        }
+      }
+    }
+    .follow-me {
+      
+      a {
+        text-decoration: underline;
+
+        &:hover, &:active, &:focus {
+          margin: -.3rem !important;
+          padding: .3rem !important;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+     /* *************
+  Portfolio Content 
+  ******************/
+  
+  .port-title {
+    margin-top: 2.5rem;
+    margin-left: 5%;
+    color: $nav;
+    
+    h1 {
+      line-height: 2rem;
+      font-size: 2rem;
+    }
+  }
+  
+  /* *************
+  Blog Homepage  Blogroll   
+  ******************/
+
+  .blogroll {
+    position: relative;
+
+    .post-roll {
+    position: relative;
+    display:inline-block;  
+    width: 100%;
+    padding-top: 2rem;
+
+      &:nth-child(even) {
+          background: $nav-highlight;
+          
+          
+      }
+      .featured-img {
+        text-align: center;
+
+        img {
+          max-width: 300%;
+          @include vendor-prefix(border-radius, 25px);
+        }
+      }
+
+      .entry-roll {
+        @extend  .entry;
+        margin: .5rem -8% 2rem 0;
+
+        .roll-date {
+          color: $light-blue;
+          padding-top: .5rem;
+        }
+
+        h2 {
+          margin-bottom: .6rem;
+          font-size: 1.5rem;
+          line-height: 2rem;
+        }
+
+        .tags-roll {
+          @extend .tags;
+          li {margin-bottom: 1rem;}
+        }
+      }
+    }
+  }
+
+   /* *************
+  Archive
+  ******************/
+
+  .arch-tags {
+    color: $light-blue;
+    padding-top: .9rem;
+  }   
+
+
+    /* *************
+  About  
+  ******************/
+
+  .section-1 {
+    position: relative; 
+    width: 100%;
+    height: 518px;
+    max-width: 100%;
+    background: url('http://kylevalenzuela.com/wp-content/uploads/2014/01/kyle-me-e1389934587429.jpg') center no-repeat fixed;
+
+  }
+  .section-1-overlay {
+      width: 100%;
+      height: 100%;
+      background: $nav-highlight; //rgba(255, 255, 255, 0.3);
+    }
+
+  .welcome-text {
+    position: relative;
+    top: 0;
+    text-align: center;
+    z-index: 100;
+    padding-top: 6rem;
+    overflow-y : auto;
+
+    h1 {
+      font-size: 3.5rem;
+      margin-bottom: 2.6rem;
+      color: $offwhite;
+
+    }
+    h3 {
+      color: $offwhite;
+      margin-bottom: 7rem;
+      span {
+        font-family: 'icomoonregular';
+        font-size: 9rem;
+        font-weight: 100;
+        color: rgba(255, 255, 255, .6)
+      }
+    }
+  }
+  
+
+  .section-2 {
+    width: 100%;
+    position: relative;
+    background: $light-blue fixed;
+    height: 930px;
+    z-index: 3050;
+
+    h1 {
+      font-size: 3rem;
+      text-align: center;
+      padding: 2rem 0 2rem 0; 
+      color: $nav;
+      border-bottom: $nav solid 2px;
+      @include vendor-prefix(animation, fadein 2s);
+
+    }
+  }
+  .about-blurb {
+    @include vendor-prefix(transition, all linear .4s );
+    width: 100%;
+  }
+
+
+  .about-wrap {
+    width: 100%;
+    font-size: 1.2rem;
+
+    .about-wrap-summary{
+      width: 100%;
+      background: $nav;
+      color: $offwhite;
+      text-align: justify;
+      float: left;
+
+      p {
+        em {color: $light-blue;}
+        margin-bottom: 1rem;
+        margin: 1.3rem 10%;
+      }
+    }
+  }
+  .about-quick {
+    width: 100%;
+    float: left;
+    color: $offwhite;
+    h3 {
+      text-align: center;
+      text-decoration: underline;
+    }
+    ul {
+
+      list-style: none;
+      margin: 1rem 3%;
+      li {
+        em {
+          text-decoration: none;
+          color: $nav;
+        }
+        span {
+          font-family: 'icomoonregular';
+          font-size: 2rem;
+          padding-right: .5rem;
+          color: $nav;
+        }
+      }
+    }
+  }
+
+  .section-3 {
+    position: relative;
+    background: url('http://kylevalenzuela.com/wp-content/uploads/2014/01/comic-section-e1389869537613.jpg') 60% 40% fixed;
+    width: 100%;
+    height: 450px;
+    z-index: 4000;
+    display: block;
+      
+      .section-3-bg {
+      position: absolute;
+      margin: 1rem 3% .5rem 3%;
+      width: 90%;
+      background: rgba(0, 0, 0, .7);//rgba(34,68,102, .5);
+      @include vendor-prefix(border-radius, 25px);
+      border: $light-blue solid 2px;
+
+      h1 {
+        padding-top: .2rem;
+        border-bottom: $light-blue solid 2px;
+        line-height: 2.5rem;
+        text-align: center;
+        color: $light-blue;
+        font-size: 2rem;
+      }
+
+      p {
+        color: $offwhite;
+        margin: 2%;
+        font-size: 1rem;
+
+      }
+    }
+  }
+
+
+
+  .section-4 {
+    position: relative;
+    height: 1080px;
+    z-index: 6005;
+    background: $offwhite;
+    
+    h1 {
+      font-size: 2.5rem;
+      text-align: center;
+      color: $nav;
+      border-bottom: $nav solid 2px;
+      line-height: 4rem;
+    }
+  }
+
+  .section-4-wrap {
+    width: 100%;
+    @include vendor-prefix(transition, opacity linear .8s );
+  
+
+    .section-4-1, 
+    .section-4-2, 
+    .section-4-3 {
+      float: left;
+      width: 100%;
+      
+      h3 {
+        text-align: center;
+        margin-bottom: 0rem;
+        margin-top: 1rem;
+        border-bottom: $light-blue solid 2px;
+        line-height: 2rem;
+        color: $light-blue;
+        @include vendor-prefix(transition, margin-top linear .4s );
+        font-size: 1.5rem;
+        
+        &.move-it {
+          margin-top: 0;
+        }
+      }
+      ul {
+        margin-top: .5rem;
+        padding: 0 5% 0 5%;
+
+
+        li {
+          margin-bottom: .7rem;
+          font-size: 1rem;
+          list-style: none;
+          color: $nav;
+          @include vendor-prefix(transition, padding-left linear .4s );
+          text-align: center;
+
+         
+          em {color: $light-blue;}
+        }
+      }
+    }
+    .section-4-2 ul li,
+    .section-4-3 ul li{
+        margin: auto 20%;
+        text-align: center;
+        font-size: 1.3rem;
+        margin-bottom: .2rem;
+    }
+  }
+
+  .section-5 {
+    position: relative;
+    width: 100%;
+    height: 1040px;
+    z-index: 20000;
+    background: $nav-highlight;
+
+    .section-5-image {
+      position: absolute;
+      background: url('http://kylevalenzuela.com/wp-content/uploads/2014/01/IMG_5540-e1389843517502.jpg') top center fixed;
+      width: 100%;
+      height: inherit;
+      z-index: 14000;
+      padding-bottom: 5rem;
+    }  
+
+    .section-5-wrap {
+      background: $nav-highlight;
+      padding-top: 1.3rem;
+        padding: auto 5%;
+
+    }
+
+    .section-5-header {
+      position: relative;
+
+
+      h1 {
+        font-size: 3rem;
+        margin-top: .5rem;
+        padding-left: 5%;
+        margin-bottom: 1rem;
+        position: relative;
+        color: $nav;
+
+      }
+      h4 {
+        float: left;  
+        width: 96%;      
+        border-bottom: $nav solid 2px;
+        line-height: 1.4rem;
+        position: relative;
+        color: white;
+        padding-left: 5%;
+        font-size: 1rem;
+      }
+    }
+  }
+ 
+  .form-wrap {
+      position: relative;
+      width: 100%;
+  } 
+  
+
+ /* *************
+  Email Form  
+  ******************/
+
+  
+
+
+
+  /* *************
+  Footer 
+  ******************/
+
+  footer {
+    position: fixed;
+    width: 100%;
+    bottom:0;
+    text-align: center;
+    background: $offwhite;
+    z-index: 99999;
+    a {
+      text-decoration: none;
+      color: $nav; 
+    }
+  }
+.error {
+    text-align: center;
+    position: relative;
+    h1 {
+      color: $nav;
+      position: relative;
+      margin-top: 8rem;
+      line-height: 2rem;
+    }
+    h4 {
+     color: $light-blue;
+     margin-top: 2rem;
+    }
+    
+    .dino {
+      font-family: 'icomoonregular';
+      color: $light-blue;
+      font-size: 10rem;
+      margin-top: 2rem;
+      @include vendor-prefix(animation, spin 5s infinite);
+      @include vendor-prefix(transition, ease-in-out .4s);
+    }
+  }
+  @-moz-keyframes spin {
+    from { -moz-transform: rotate(0deg); }
+    to { -moz-transform: rotate(360deg); }
+  }
+
+  @-webkit-keyframes spin {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+  }
+
+  @keyframes spin {
+      from {transform:rotate(0deg);}
+      to {transform:rotate(360deg);}
+  }
+
+}
+
+
+
+
+
